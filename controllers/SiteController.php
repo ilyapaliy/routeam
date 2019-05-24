@@ -66,6 +66,16 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays librarypage.
+     *
+     * @return string
+     */
+    public function actionLibrary()
+    {
+        return $this->render('library');
+    }
+
+    /**
      * Login action.
      *
      * @return Response|string
