@@ -5,3 +5,23 @@
 .navbar-inverse>.container {
 	display: inline !important;
 }
+
+.tblElem {
+
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 2px #6c757d solid;
+    margin: .25rem .25rem;
+    border-radius: .25rem;
+    border-color: #6c757d;
+}
+
+/*#tablo {
+	background-color: #5a6268;
+}*/
+
+/*возможно было бы лучше подставить те значения,
+которые были до подключения bootstrap, но я их не посмотрел,
+да и нет необходимости*/
