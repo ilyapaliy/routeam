@@ -72,7 +72,9 @@ class SiteController extends Controller
      */
     public function actionLibrary()
     {
-        return $this->render('library');
+    	$library = Library::find()->all();
+
+        return $this->render('library', ['library' => $library]);
     }
 
     /**
