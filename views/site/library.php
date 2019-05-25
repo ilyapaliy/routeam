@@ -1,5 +1,5 @@
-<h3>demo/demo - user (only read), admin/admin - admin (CRUD)</h3>
-<h3>You need to login to use library!</h3>
+<h3>You need to be admin to make changes!</h3>
+<div class="input btn btn-outline-secondary">ololo</div>
 <?php
 	// if (Yii::$app->user->identity->username) {
 	// 	echo "you are admin";

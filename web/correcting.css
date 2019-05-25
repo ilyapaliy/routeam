@@ -1,0 +1,7 @@
+#w1 {
+	display: inline-block !important;	
+}
+
+.navbar-inverse>.container {
+	display: inline !important;
+}
