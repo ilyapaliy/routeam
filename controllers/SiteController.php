@@ -10,9 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Library;
-use app\models\AddOrEdit;
-use app\models\FilterSort;
-use app\models\DeleteForm;
+use app\models\MyForm;
 
 class SiteController extends Controller
 {
@@ -68,22 +66,11 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-    public function actionDelete()
-    {
-        $del = new DeleteForm();
-        return $this->render('del', ['del' => $del]);
-    }
+    public function actionForm() {
+    	$form = new MyForm();
 
-    public function actionAOE()
-    {
-        $AOE = new AddOrEdit();
-        return $this->render('AOE', ['AOE' => $AOE]);
-    }
-
-    public function FilterSort()
-    {
-        $FilterSort = new FilterSort();
-        return $this->render('FilterSort', ['FilterSort' => $FilterSort]);
+    	return $this->render('index',
+			['form' => $form]);
     }
 
     /**

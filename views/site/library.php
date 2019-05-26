@@ -7,38 +7,7 @@ use yii\widgets\ActiveForm;
 use app\models\Library;
 use yii\helpers\Html;
 
-class DeleteForm extends \yii\base\Model {
-	
-	public $name;
 
-}
-
-// class AddOrEdit extends \yii\base\Model {
-// 	public $bookID;
-// 	public $autor;
-// 	public $name;
-// 	public $createDate;
-
-// 	public function rules() {
-// 		return [
-// 			[['bookID','autor','name','createDate'], 'required'],
-// 			[ ['bookID'],'integer']
-// 		];
-// 	}
-	
-// }
-
-// class FilterSort extends \yii\base\Model {
-	
-// };
-
-// fom site\del.php
-	$f = ActiveForm::begin();
-
-	$f->field($del, 'delete');
-	Html::submitButton('Delete');
-
-	ActiveForm::end();
 ?>
 
 <h3>You need to be admin to make changes!</h3>
