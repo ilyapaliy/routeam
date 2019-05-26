@@ -10,6 +10,9 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Library;
+use app\models\AddOrEdit;
+use app\models\FilterSort;
+use app\models\DeleteForm;
 
 class SiteController extends Controller
 {
@@ -65,6 +68,24 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionDelete()
+    {
+        $del = new DeleteForm();
+        return $this->render('del', ['del' => $del]);
+    }
+
+    public function actionAOE()
+    {
+        $AOE = new AddOrEdit();
+        return $this->render('AOE', ['AOE' => $AOE]);
+    }
+
+    public function FilterSort()
+    {
+        $FilterSort = new FilterSort();
+        return $this->render('FilterSort', ['FilterSort' => $FilterSort]);
+    }
+
     /**
      * Displays librarypage.
      *
@@ -74,8 +95,28 @@ class SiteController extends Controller
     {
     	$library = Library::find()->all();
 
+		// foreach ($library as $l) {
+		// 	$count = Library::find()
+  //   		->where(['autor' => $library->autor])
+  //   		->count();
+		// }
+
         return $this->render('library', ['library' => $library]);
     }
+
+  //   public function actionCounter($a)
+  //   {
+  //   	$library = Library::find()->all();
+
+		// foreach ($library as $l) {
+		// 	if ($a->autor = $l)
+		// 	$count = Library::find()
+  //   		->where(['autor' => $a->autor])
+  //   		->count();
+		// }
+
+  //       return $this->render('autor', ['autor' => $count]);
+  //   }
 
     /**
      * Login action.

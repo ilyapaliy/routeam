@@ -1,3 +1,46 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+use yii\widgets\ActiveForm;
+use app\models\Library;
+use yii\helpers\Html;
+
+class DeleteForm extends \yii\base\Model {
+	
+	public $delete;
+
+}
+
+class AddOrEdit extends \yii\base\Model {
+	public $bookID;
+	public $autor;
+	public $name;
+	public $createDate;
+
+	public function rules() {
+		return [
+			[['bookID','autor','name','createDate'], 'required'],
+			[ ['bookID'],'integer']
+		];
+	}
+	
+}
+
+class FilterSort extends \yii\base\Model {
+	
+};
+
+// fom site\del.php
+	// $f = ActiveForm::begin();
+
+	// $f->field($del, 'delete');
+	// Html::submitButton('Delete');
+
+	// ActiveForm::end();
+?>
+
 <h3>You need to be admin to make changes!</h3>
 <!-- <div class="input btn btn-outline-secondary">ololo</div> -->
 <?php
@@ -21,27 +64,48 @@
 		<div class="col tblElem"><b></b></div>
 	</div>
 	<?php
-	foreach ($library as $library) { ?>
-		<div class="row">
-			<div class="col tblElem"><?=$library->book_ID?></div>
-			<div class="col tblElem"><?=$library->autor?></div>
-			<div class="col tblElem"><?=$library->name?></div>
-			<div class="col tblElem"><?=$library->createDate?></div>
-			<div class="col tblElem"><?=$library->changeDate?></div>
-			<div class="col tblElem"></div>
-			<div class="col tblElem"></div>
+	$max =1;
+	foreach ($library as $l) { 
+		echo '<div class="row ';
+		echo $l->book_ID;
+		echo '">';
+		$max +=1;?>
+		<!-- <div class="row "> -->
+			<div class="col tblElem"><h5><?=$l->book_ID?></h5></div>
+			<div class="col tblElem"><h5><?=$l->autor?></h5></div>
+			<div class="col tblElem"><h5><?=$l->name?></h5></div>
+			<div class="col tblElem"><h5><?=$l->createDate?></h5></div>
+			<div class="col tblElem"><h5><?=$l->changeDate?></h5></div>
+			<div class="col tblElem"><h5><?php
+			$count = 0;
+			foreach ($library as $a) {
+				if ($a->autor == $l->autor) {
+					$count +=1;
+				}
+			}
+			echo $count;
+			// actionCounter($l->autor)
+			// $count = Library::find()
+   //  ->where(['autor' => $library->autor])
+   //  ->count();
+			?></h5></div>
+			<div class="col tblElem"><h5>delete</h5></div>
+<!-- $post = Post::findOne(4);
+$post->delete(); -->
 		</div>
 		<!-- <li><b><?=$library->name?></b></li> -->
-	<?php } ?>
+	<?php }?>
 	<div class="row">
-		<div class="col tblElem"><b></b></div>
-		<div class="col tblElem"><b></b></div>
-		<div class="col tblElem"><b></b></div>
-		<div class="col tblElem"><b></b></div>
+		<div class="col tblElem"><input placeholder="book_ID"></div>
+		<div class="col tblElem"><input placeholder="autor"></div>
+		<div class="col tblElem"><input placeholder="name"></div>
+		<div class="col tblElem"><input placeholder="createDate"></div>
 		<div class="col tblElem"><b>add or edit</b></div>
 	</div>
 	<div class="row">
+		<div class="col tblElem"><b>refresh</b></div>
 		<div class="col tblElem"><b>filter by</b></div>
+		<div class="col tblElem"><b>sort by</b></div>
 		<div class="col tblElem">autor</div>
 		<div class="col tblElem">sum of books</div>
 		<div class="col tblElem">name</div>
@@ -75,3 +139,5 @@ DELETE FROM `library` WHERE `library`.`book_ID` = 1;
     </div>
   </div>
 </div> -->
+
+<!-- Yii::$app->db->createCommand()->delete('user', 'id = 1')->execute(); -->
