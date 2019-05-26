@@ -9,36 +9,36 @@ use yii\helpers\Html;
 
 class DeleteForm extends \yii\base\Model {
 	
-	public $delete;
-
-}
-
-class AddOrEdit extends \yii\base\Model {
-	public $bookID;
-	public $autor;
 	public $name;
-	public $createDate;
 
-	public function rules() {
-		return [
-			[['bookID','autor','name','createDate'], 'required'],
-			[ ['bookID'],'integer']
-		];
-	}
-	
 }
 
-class FilterSort extends \yii\base\Model {
+// class AddOrEdit extends \yii\base\Model {
+// 	public $bookID;
+// 	public $autor;
+// 	public $name;
+// 	public $createDate;
+
+// 	public function rules() {
+// 		return [
+// 			[['bookID','autor','name','createDate'], 'required'],
+// 			[ ['bookID'],'integer']
+// 		];
+// 	}
 	
-};
+// }
+
+// class FilterSort extends \yii\base\Model {
+	
+// };
 
 // fom site\del.php
-	// $f = ActiveForm::begin();
+	$f = ActiveForm::begin();
 
-	// $f->field($del, 'delete');
-	// Html::submitButton('Delete');
+	$f->field($del, 'delete');
+	Html::submitButton('Delete');
 
-	// ActiveForm::end();
+	ActiveForm::end();
 ?>
 
 <h3>You need to be admin to make changes!</h3>
@@ -89,7 +89,15 @@ class FilterSort extends \yii\base\Model {
    //  ->where(['autor' => $library->autor])
    //  ->count();
 			?></h5></div>
-			<div class="col tblElem"><h5>delete</h5></div>
+			<div class="col tblElem"><h5><input formaction="http://routeam/web/index.php?r=site%2Flibrary" name="del" type="submit" value="Delete"></h5></div>
+<!-- 			<?php
+		    if (isset($_POST['del'])) {
+		        
+		        $post = Library::find()->where(['book_ID' => $l->book_ID]);
+		        echo $post;
+				$post->delete();
+		    }
+			?> -->
 <!-- $post = Post::findOne(4);
 $post->delete(); -->
 		</div>
@@ -112,6 +120,7 @@ $post->delete(); -->
 		<div class="col tblElem">createDate</div>
 	</div>
 </div>
+
 	<!--  $sql = "INSERT INTO `library`(`book_ID`, `autor`, `name`, `createDate`, `changeDate`) VALUES (1,'William Shakespeare','King Lear','2011-10-01',CURRENT_DATE());";
 	 class table extends \yii\base\Model
 	 {

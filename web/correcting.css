@@ -1,5 +1,10 @@
-#w1 {
-	display: inline-block !important;	
+
+#w0-collapse>#w1 {
+	display: inline !important;	
+}
+
+#w1-collapse>#w2 {
+	display: inline !important;	
 }
 
 .navbar-inverse>.container {
